@@ -1,12 +1,20 @@
 const fs = require("fs");
-const sound = require("sound-play");
+const player = require('play-sound')(opts = {});
 const readline = require("readline");
 const RecordNewAudio = require("./RecordAudio");
 
 const messagesDirectory = "./messages/";
 
 function PlayOldAudio() {
-  return sound.play("./Greeting.wav");
+  return new Promise((res, rej) => {
+    player.play("./Greeting.mp3", function(err){
+      if (err) {
+        rej(err);
+      } else {
+        res();
+      }
+    })
+  })
 }
 
 function GetMessageFilename() {
@@ -34,4 +42,4 @@ function RecordNewMessage(filename) {
   });
 }
 
-PlayOldAudio().then(GetMessageFilename).then(RecordNewMessage);
+PlayOldAudio().then(GetMessageFilename().then(RecordNewMessage));

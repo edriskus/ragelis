@@ -4,14 +4,15 @@
   "description": "",
   "main": "Ragelis.js",
   "scripts": {
+    "start": "node Ragelis.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "audio-loader": "^1.0.3",
-    "audio-play": "^2.2.1",
+    "@types/onoff": "^4.1.0",
     "node-record-lpcm16": "^1.0.1",
-    "sound-play": "^1.0.5"
+    "onoff": "^6.0.0",
+    "play-sound": "^1.1.3"
   }
 }
